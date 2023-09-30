@@ -41,8 +41,8 @@ function formatTime(seconds) {
 // Function to create a new timer with the specified total seconds
 function createTimer(totalSeconds) {
     // Create a container for the timer
-    const timerContainer = document.createElement('div');
-    timerContainer.classList.add('timer-container');
+    const newTimeContainer = document.createElement('div');
+    newTimeContainer.classList.add('timer-container');
 
     // Create an element to display "Time Left"
     const timeLeftElement = document.createElement('div');
@@ -76,7 +76,7 @@ function createTimer(totalSeconds) {
         totalSeconds--;
         if (totalSeconds <= 0) {
             clearInterval(timerInterval);
-            timerContainer.className = ("time-up")
+            newTimeContainer.className = ("time-up")
             timerElement.classList.add('timer-ended');
             timerElement.textContent = "Timer is up!";
             stopButton.style.display = 'none'; // Hide the Stop Timer button
@@ -93,7 +93,7 @@ function createTimer(totalSeconds) {
     stopButton.addEventListener('click', () => {
         // Stop the timer and remove the timer container
         clearInterval(timerInterval);
-        timerContainer.remove();
+        newTimeContainer.remove();
         isTimerActive = false; // Reset the active timer flag
         // Check if there are no timers, then display "You have no timers currently!" text
         if (activeTimers.children.length === 0) {
@@ -104,7 +104,7 @@ function createTimer(totalSeconds) {
     // Add a click event listener to the 'Delete' button
     deleteButton.addEventListener('click', () => {
         // Remove the timer container
-        timerContainer.remove();
+        newTimeContainer.remove();
         // Check if there are no timers, then display "You have no timers currently!" text
         if (activeTimers.children.length === 0) {
             displayNoTimersText();
@@ -119,12 +119,12 @@ function createTimer(totalSeconds) {
     timerControls.appendChild(deleteButton);
 
     // Append timer elements to the timer container
-    timerContainer.appendChild(timeLeftElement);
-    timerContainer.appendChild(timerElement);
-    timerContainer.appendChild(timerControls);
+    newTimeContainer.appendChild(timeLeftElement);
+    newTimeContainer.appendChild(timerElement);
+    newTimeContainer.appendChild(timerControls);
 
     // Append the timer container to the 'activeTimers' element
-    activeTimers.appendChild(timerContainer);
+    activeTimers.appendChild(newTimeContainer);
 }
 
 // Function to display "You have no timers currently!" text

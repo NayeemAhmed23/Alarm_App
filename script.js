@@ -147,6 +147,6 @@ function removeNoTimersText() {
 
 // Function to play an audio alert
 function playAudioAlert() {
-    const audio = new Audio('./microwave-timer-117077.mp3'); // Replace with the path to your audio file
+    const audio = new Audio('./Assets/microwave-timer-117077.mp3'); // Replace with the path to your audio file
     audio.play();
 }
